@@ -6,14 +6,18 @@
     <VerticalStackLayout>
         <Label
             Text="This is your font and icon workout"
-            FontFamily=" MyMaterialSymbols "
+            FontFamily="BitcountInkFont"
+            FontSize="24"/>
+
+        <Button
+            Margin="5,0,0,0"
+            ImageSource="search.png"   
             FontSize="24"/>
 
         <Button
             Text="&#xe8b6;"
+            FontFamily="MaterialIcons"
             Margin="5,0,0,0"
-            FontFamily=" MyMaterialSymbols "
-         BackgroundColor ="Transparent"
             FontSize="24"/>
 
     </VerticalStackLayout>
