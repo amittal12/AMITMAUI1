@@ -21,10 +21,6 @@ namespace AMITMAUI1.VeiwModels
         private string? _togglepasswordButtonText;
         private bool _isDEbugMode => true;
         private DBMokup? _dbMokup;
-        public bool IsSignInButtonEnabled
-        {
-            get => !(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(UserPassword));
-        }
         public string TogglePasswordButtonText
         {
             get => _togglepasswordButtonText!;
@@ -51,27 +47,28 @@ namespace AMITMAUI1.VeiwModels
         }
         public string Username
         {
-            get => _username;
+            get => _username!;
             set
             {
                 if (_username != value)
                 {
                     _username = value;
                     OnPropertyChanged(nameof(Username));
-                    OnPropertyChanged(nameof(IsSignInButtonEnabled));
+                    //OnPropertyChanged(nameof(IsSignInButtonEnabled));
+                    (SignInCommand as Command)?.ChangeCanExecute();
                 }
             }
         }
         public string UserPassword
         {
-            get => _password;
+            get => _password!;
             set
             {
                 if (_password != value)
                 {
                     _password = value;
                     OnPropertyChanged(nameof(UserPassword));
-                    OnPropertyChanged(nameof(IsSignInButtonEnabled));
+                    (SignInCommand as Command)?.ChangeCanExecute();
                 }
             }
         }
@@ -89,7 +86,7 @@ namespace AMITMAUI1.VeiwModels
         }
         public string MessageText
         {
-            get => _MessageText;
+            get => _MessageText!;
             set
             {
                 if (_MessageText != value)
@@ -101,7 +98,7 @@ namespace AMITMAUI1.VeiwModels
         }
         public Color MessageTextColor
         {
-            get => _messageTextColor;
+            get => _messageTextColor!;
             set
             {
                 if (_messageTextColor != value)
@@ -127,7 +124,7 @@ namespace AMITMAUI1.VeiwModels
 
                 EntryAsPassword = !EntryAsPassword;
             });
-            SignInCommand = new Command(OnSignInButtonClicked);
+            SignInCommand = new Command(OnSignInButtonClicked , CanSignIn);
             
             TogglePasswordButtonText = FontHelper.CLOSED_EYE_ICON;
 
@@ -165,6 +162,10 @@ namespace AMITMAUI1.VeiwModels
                 MessageTextColor = Colors.Red;
             }
             IsMessageLabelVisble = true;
+        }
+        private bool CanSignIn()
+        {
+            return !(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(UserPassword));
         }
     }
 }

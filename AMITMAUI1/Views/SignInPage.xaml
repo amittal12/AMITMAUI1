@@ -69,7 +69,6 @@
            CornerRadius="8"
            FontSize="18"
            HeightRequest="50"
-           IsEnabled="{Binding IsSignInButtonEnabled}"
            Text="חיבור"
            TextColor="White"
            Command="{Binding SignInCommand}"/>
