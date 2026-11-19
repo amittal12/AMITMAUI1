@@ -13,16 +13,16 @@ ContentPage
     private string? _mobile;
     private bool _entryAsPassword;
     private string? _passwordIconCode;
-    public ICommand? ShowPasswordCommand { get; }
-    public ICommand? SignInCommand { get; }
+    //public ICommand? ShowPasswordCommand { get; }
+    //public ICommand? SignInCommand { get; }
     public SignUpPage2()
     {
         InitializeComponent();
         BindingContext = this;
-        _entryAsPassword = true;
-        _passwordIconCode = FontHelper.CLOSED_EYE_ICON;
-        ShowPasswordCommand = new Command(TogglePasswordButton);
-        SignInCommand = new Command(SignUp, Validate);
+        EntryAsPassword = true;
+        PasswordIconCode = FontHelper.OPEN_EYE_ICON;
+        //ShowPasswordCommand = new Command(TogglePasswordButton);
+        //SignInCommand = new Command(SignUp, Validate);
     }
 
     public string FirstName
@@ -109,15 +109,6 @@ ContentPage
             }
         }
     }
-    private void TogglePasswordButton()
-    {
-        _entryAsPassword = _entryAsPassword;
-        if (EntryAsPassword)
-            PasswordIconCode = FontHelper.CLOSED_EYE_ICON;
-        else
-            PasswordIconCode = FontHelper.OPEN_EYE_ICON;
-
-    }
     private void SignUp()
     {
         //Register user into DB
@@ -127,5 +118,16 @@ ContentPage
     private bool Validate()
     {
         return true;
+    }
+
+    private void TogglePasswordButton(object sender, EventArgs e)
+    {
+        
+        if (EntryAsPassword)
+            PasswordIconCode = FontHelper.OPEN_EYE_ICON;
+        else
+            PasswordIconCode = FontHelper.CLOSED_EYE_ICON;
+
+        EntryAsPassword = !EntryAsPassword;
     }
 }
