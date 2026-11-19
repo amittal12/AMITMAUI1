@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AMITMAUI1.Views.SignUpPage2"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr - namespace:AMITMAUI1.Views"
+    Title="SignUpPage2"
+    x:DataType="views:SignUpPage2">
+
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Wheat" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="#004FF9" />
+            <GradientStop Offset="1.0" Color="#FFF94C" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid ColumnDefinitions="*,8*,*" RowDefinitions="*,4*,*">
+        <HorizontalStackLayout
+            Grid.Column="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Label
+                FontSize="24"
+                Text="Create Account"
+                TextColor="White" />
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+            <Border
+                Margin="0,0,0,10"
+                Padding="10"
+                Stroke="#ccc"
+                StrokeShape="RoundRectangle 8"
+                StrokeThickness="1">
+                <Entry
+                    FontSize="18"
+                    Placeholder="First Name"
+                    Text="{Binding FirstName}"
+                    TextColor="Wheat" />
+            </Border>
+            <Border
+                Margin="0,0,0,10"
+                Padding="10"
+                Stroke="#ccc"
+                StrokeShape=" RoundRectangle 8"
+                StrokeThickness=" 1">
+                <Entry
+                    FontSize="18"
+                    Placeholder="Last Name"
+                    Text=""
+                    TextColor="Wheat" />
+            </Border>
+            <Border
+                Margin="0,0,0,10"
+                Padding="10"
+                Stroke="#ccc"
+                StrokeShape=" RoundRectangle 8"
+                StrokeThickness="1">
+                <Entry
+                    FontSize="18"
+                    Keyboard="Email"
+                    Placeholder="Email"
+                    Text="{Binding UserEmail}" />
+            </Border>
+            <Border
+                Margin="0,0,0,10"
+                Stroke="#ccc"
+                StrokeShape=" RoundRectangle 8"
+                StrokeThickness="1">
+                <Grid
+                    Padding="10"
+                    ColumnDefinitions="*,Auto"
+                    VerticalOptions="Center">
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        BackgroundColor="Transparent"
+                        FontSize=" 18 "
+                        IsPassword="True"
+                        Placeholder="Password"
+                        Text=""
+                        TextColor="Wheat"
+                        VerticalOptions="Center" />
+                    <Button
+                        Margin="5,0,0,0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        Clicked="TogglePassordButton"
+                        FontFamily="MaterialSymbolsFont"
+                        FontSize="24"
+                        HorizontalOptions="End"
+                        Text="&#xe8f5;"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Border>
+            <Border
+                Margin="0,0,0,10"
+                Padding="10"
+                Stroke="#ccc"
+                StrokeShape=" RoundRectangle 8"
+                StrokeThickness="1">
+                <Entry
+                    FontSize="18"
+                    Keyboard="Telephone"
+                    Placeholder="Mobile"
+                    Text=""
+                    TextColor="Wheat" />
+            </Border>
+            <Button
+                CornerRadius="8"
+                FontSize="20"
+                HeightRequest="70"
+                Text="Sign Up"
+                TextColor="White" />
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label
+                    Margin="14,0,0,0"
+                    FontSize="16"
+                    Text="Already have an account?"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+                <Button
+                    BackgroundColor="Transparent"
+                    FontSize="16"
+                    Text="SignIn"
+                    TextColor="BlueViolet" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

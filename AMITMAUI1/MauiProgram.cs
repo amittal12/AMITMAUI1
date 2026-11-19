@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace AMITMAUI1
 {
@@ -8,17 +9,19 @@ namespace AMITMAUI1
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                // Initialize the .NET MAUI Community Toolkit by adding the below line of code
+                .UseMauiCommunityToolkit()
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcons");
-                    fonts.AddFont("BitcountInk-VariableFont.ttf", "BitcountInkFont");
+                    fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcons-Regular");
+
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

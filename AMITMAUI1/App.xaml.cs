@@ -14,7 +14,8 @@ namespace AMITMAUI1
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new SignInPage());
+            return new Window(new SignUpPage2());
+            //return new Window(new SignUpPage2());
         }
     }
 }
