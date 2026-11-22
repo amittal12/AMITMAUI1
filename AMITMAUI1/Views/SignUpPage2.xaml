@@ -6,6 +6,7 @@
     xmlns:views="clr-namespace:AMITMAUI1.Views"
     Title="SignUpPage2"
     x:DataType="views:SignUpPage2">
+    
 
     <ContentPage.Resources>
         <Style x:Key="InvalidEntryStyle" TargetType="Entry">
@@ -69,6 +70,7 @@
                     Keyboard="Email"
                     Placeholder="Email"
                     Text="{Binding UserEmail}" />
+                
             </Border>
             <Border
                 Margin="0,0,0,10"
@@ -85,7 +87,7 @@
                         FontSize=" 18 "
                         IsPassword="{Binding EntryAsPassword}"
                         Placeholder="Password"
-                        Text=""
+                        Text="{Binding UserPassword}"
                         TextColor="Wheat"
                         VerticalOptions="Center" />
                     <Button

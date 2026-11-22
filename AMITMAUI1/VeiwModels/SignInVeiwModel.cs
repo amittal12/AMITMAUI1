@@ -12,6 +12,7 @@ namespace AMITMAUI1.VeiwModels
 {
     public class SignInVeiwModel : ViewModelBase /*ObservableObject*/
     {
+        #region Properties
         private string? _username;
         private string? _password;
         private bool _enteryasPassword;
@@ -111,6 +112,7 @@ namespace AMITMAUI1.VeiwModels
 
         public ICommand ShowPasswordCommand { get; }
         public ICommand SignInCommand { get; }
+        #endregion
 
         public SignInVeiwModel()
         {
@@ -126,7 +128,7 @@ namespace AMITMAUI1.VeiwModels
             });
             SignInCommand = new Command(OnSignInButtonClicked , CanSignIn);
             
-            TogglePasswordButtonText = FontHelper.CLOSED_EYE_ICON;
+            TogglePasswordButtonText = FontHelper.OPEN_EYE_ICON;
 
             EntryAsPassword = true;
 
